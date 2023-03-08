@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDSqlite.MainPage">
+
+    <StackLayout BackgroundColor="#000000" >
+   
+        
+        <Label Text="Id Localizacion" FontSize="20"/>
+        <Entry x:Name="txtidLocalizacion" IsVisible="false"/>
+        <Label Text="Latitud" FontSize="20"/>
+        <Entry x:Name="txtlatitud"  Keyboard="Numeric" />
+        <Label Text="Longitud" FontSize="20"/>
+            <Entry x:Name="txtlongitud" Keyboard="Numeric"/>
+        <Label Text="descripcion corta" FontSize="20"/>
+            <Entry x:Name="txtdescripcioncorta"  />
+        <Label Text="Descripcion Larga" FontSize="20"/>
+            <Entry x:Name="txtdescripcionlarga" />
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Actualizar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" x:Name="btnActubicacion"  Margin="05,10,0,10" CornerRadius="10" IsVisible="false" Clicked="btnActubicacion_Clicked"  />
+            <Button Text="guardar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" x:Name="btnsalvarubicacion" Margin="0,10,0,10" CornerRadius="10" Clicked="btnsalvarubicacion_Clicked" />
+            <Button Text="Eliminar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" x:Name="btnEliminar" Margin="0,10,0,10" CornerRadius="10" IsVisible="false" Clicked="btnEliminar_Clicked"/>
+        <StackLayout>
+               
+        </StackLayout>
+            <Button Text="Segunda pagina" Background="black" BorderColor="White" BorderWidth="1" x:Name="btnsegund" Margin="0,0,0,10" CornerRadius="10" Clicked="btnsegund_Clicked" />
+        </StackLayout>
+            <ListView x:Name="LstLocalizaciones" ItemSelected="LstLocalizaciones_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                                
+                                <Label Text="{Binding idLocalizacion}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="17" Grid.Row="0" Grid.Column="0"  TextColor="White"/>
+                                <Label Text="{Binding latitud}"  VerticalOptions="Center" FontSize="12" Grid.Row="0" HorizontalOptions="Center" Grid.Column="1" Grid.ColumnSpan="3" TextColor="White"/>
+                                <Label Text="{Binding longitud}" VerticalOptions="Center" FontSize="12" Grid.Row="0" HorizontalOptions="Center" Grid.Column="4" Grid.ColumnSpan="3" TextColor="White"/>
+                                <Label Text="{Binding descripcioncorta}" VerticalOptions="Center" FontSize="16" HorizontalOptions="Center" Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="7" TextColor="White"/>
+                                <Label Text="{Binding descripcionlarga}" VerticalOptions="End" FontSize="10" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" TextColor="Wheat" Grid.ColumnSpan="10" />
+
+                        </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </StackLayout>      
+
+</ContentPage>
